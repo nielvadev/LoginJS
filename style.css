@@ -1,0 +1,133 @@
+body {
+    background-color: #0a1930;
+    font-family: 'lato', sans-serif;
+    font-size: 24px;
+    color: #cdd7f8;
+    line-height: 1.4;
+    margin: auto;
+    height: 768px;
+    
+    
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    width: 100%;
+    max-width: 400px;
+    background: #0a1930;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.5);
+    position: static;
+}
+
+.txtfield {
+    display: flex;
+    width: 92%;
+    padding: 10px 15px 10px 10px;
+    border: 2px solid #3dfaea;
+    border-radius: 5px;
+    margin: 5px 20px 0px 0;
+    background: transparent;
+    color: #cdd7f8;
+    font-size: 18px;
+}
+
+.txtfield:focus {
+    border: unset;
+    outline: none;
+    caret-color: #3dfaea;
+    box-shadow: 2px 2px 5px #0797bb;
+    color: #3dfaea;
+    border-color: #3dfaea;
+}
+
+.txtfield:hover {
+    border-color: #3dfaea;
+}
+
+.txtfield:focus::placeholder {
+    color: #3dfaea;
+}
+
+
+.btn {
+    margin-top: 15px;
+    background-color: #3dfaea;
+    color: #0a1930;
+    border: none;
+    padding: 10px 80px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.5s;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #0a1930;
+    color: #3dfaea;
+    border: 1px solid #3dfaea;
+}
+
+p {
+    margin-top: 15px;
+    color: #cdd7f8;
+    font-size: 18px;
+    text-align: center;
+}
+
+a {
+    color: #3dfaea;
+    text-decoration: none;
+}
+
+.fecha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fecha p {
+    margin: 0;
+    color: #cdd7f8;
+    font-size: 20px;
+    text-align: center;
+}
+
+.genero {
+    margin-top: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.genero p {
+    margin: 0;
+    color: #cdd7f8;
+    font-size: 20px;
+    text-align: center;
+}
+
+.select {
+    display: flex;
+    width: 15%;
+    padding: 10px 5px 10px 10px;
+    border: 2px solid #3dfaea;
+    border-radius: 5px;
+    margin: 0px 0px 0px 10px;
+    background: transparent;
+    color: #cdd7f8;
+    font-size: 18px;
+}
