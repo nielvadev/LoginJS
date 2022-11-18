@@ -15,7 +15,7 @@
                     <input class="txtfield" type="text" id="username" name="username" placeholder="Usuario">
                     <input class="txtfield" type="password" id="password" name="password" placeholder="Contraseña">
                 <div align="center">
-                    <button class="btn" type="button" name="submit">Iniciar Sesión</button>
+                    <button class="btn" type="button" id="button" name="submit">Iniciar Sesión</button>
                 </div>
             </form>
             <p>¿No tienes una cuenta? 
@@ -23,6 +23,39 @@
             </p>
         </div>
     </div>     
-<script rel="script" src="/app.js"></script>       
+<script>
+
+    const button = document.getElementById('button');
+
+    button.addEventListener('click', () => {
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+  
+        const newLogin = {
+        username: username,
+        password: password
+        }
+
+    fetch('http://localhost:3000/login', {
+        method: 'POST',
+        body: JSON.stringify(newLogin),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if(data.status === 'ok'){
+            alert('Bienvenido');
+        }else{
+            alert('Usuario o contraseña incorrectos');
+        }
+    })
+    .catch(err => (err));
+    })
+    
+</script>       
 </body>
 </html>

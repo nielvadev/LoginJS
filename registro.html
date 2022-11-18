@@ -32,11 +32,63 @@
                 <input class="txtfield" type="text" id="usuario" placeholder="Usuario" required>
                 <input class="txtfield" type="password" id="password" placeholder="Contraseña" required>
                 <div align="center">
-                    <button class="btn" type="button" id="submit" onclick="registrar()">Registrar</button>
+                    <button class="btn" type="button" id="button"">Registrar</button>
                 </div>
             </form>
         </div>
     </div>
-    <script type="text/Javascript" src="./app.js"></script>
+    <script>
+
+    const button = document.getElementById('button');
+
+    button.addEventListener('click', () => {
+
+        const id = document.getElementById('id').value;
+        const nombre = document.getElementById('nombre').value;
+        const apellido = document.getElementById('apellido').value;
+        const direccion = document.getElementById('direccion').value;
+        const telefono = document.getElementById('telefono').value;
+        const nacimiento = document.getElementById('nacimiento').value;
+        const genero = document.getElementById('genero').value;
+        const usuario = document.getElementById('usuario').value;
+        const password = document.getElementById('password').value;
+
+        const newUser = {
+            id: id,
+            nombre: nombre,
+            apellido: apellido,
+            direccion: direccion,
+            telefono: telefono,
+            nacimiento: nacimiento,
+            genero: genero,
+            usuario: usuario,
+            password: password
+        }
+
+        fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newUser)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.status === 'ok'){
+
+                alert('Usuario creado con exito');
+                window.location.href = 'http://localhost/loginJS/';
+
+            } else if (data.status === 'error'){
+
+                alert('Usuario existente, inserte otro usuario');
+
+            }
+        });
+    });
+    
+
+    </script>
 </body>
 </html>
