@@ -1,18 +1,23 @@
-function iniciarSesion(){
+const button = document.querySelector('button');
 
-  let username = document.getElementById('username').value;
-  let password = document.getElementById('password').value;
+button.addEventListener('click', () => {
+
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
   
-  alert(username + password);
+  const newLogin = {
+    username: 'UsuarioX',
+    password: '12345'
+  }
+
 
   fetch('http://localhost:3000/login', {
-    method: 'GET',
+    method: 'POST',
+    body: JSON.stringify(newLogin),
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      username: username,
-      password: password
-    })
   })
-}
+  .then(response => response.json())
+  .then(data => console.log(data))
+})
